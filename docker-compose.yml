@@ -1,19 +1,19 @@
 version: "3.8"
 services:
-  spring:
-    container_name: spring
-    build:
-      context: ./spring
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      ACTIVE_PROFILE: ${ACTIVE_PROFILE}
-    depends_on:
-      - postgres
-    networks:
-      - study
+  # spring:
+  #   container_name: spring
+  #   build:
+  #     context: ./spring
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     ACTIVE_PROFILE: ${ACTIVE_PROFILE}
+  #   depends_on:
+  #     - postgres
+  #   networks:
+  #     - study
 
   postgres:
     image: postgres:latest
@@ -29,19 +29,19 @@ services:
     networks:
       - study
 
-  react:
-    container_name: react
-    build:
-      context: ./ReactToDoList/reacttodolist
-      dockerfile: Dockerfile
-    restart: always
-    command: npm start
-    ports:
-      - "3000:3000"
-    depends_on:
-      - spring
-    networks:
-      - study
+  # react:
+  #   container_name: react
+  #   build:
+  #     context: ./ReactToDoList/reacttodolist
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   command: npm start
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - spring
+  #   networks:
+  #     - study
 
 networks:
   study:
