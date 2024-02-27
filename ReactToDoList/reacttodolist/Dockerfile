@@ -6,6 +6,6 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . ./
-# COPY build/ ./build/
+#COPY build/ ./build/
 
 CMD ["npm", "run", "docker-start"]
