@@ -27,19 +27,19 @@ services:
     networks:
       - study
 
-  # react:
-  #   container_name: react
-  #   build:
-  #     context: ./ReactToDoList/reacttodolist
-  #     dockerfile: Dockerfile
-  #   restart: always
-  #   command: npm start
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - spring
-  #   networks:
-  #     - study
+  react:
+    container_name: react
+    build:
+      context: ./ReactToDoList/reacttodolist
+      dockerfile: Dockerfile
+    restart: always
+    command: npm start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - spring
+    networks:
+      - study
 
 networks:
   study:
