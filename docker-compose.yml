@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  spring:
+    container_name: spring
+    build:
+      context: ./spring
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - study
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 4321
+    volumes:
+      - /postgres-data:/var/lib/postgresql/data
+    networks:
+      - study
+
+  # react:
+  #   container_name: react
+  #   build:
+  #     context: ./ReactToDoList/reacttodolist
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   command: npm start
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - spring
+  #   networks:
+  #     - study
+
+networks:
+  study:
+    name: study
+    driver: bridge
