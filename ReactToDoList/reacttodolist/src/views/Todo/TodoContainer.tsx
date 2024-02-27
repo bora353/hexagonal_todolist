@@ -22,7 +22,7 @@ export default function TodoContainer() {
       </div>
       <div>
         {todoList?.map((todo) => (
-          <TodoList todo={todo}></TodoList>
+          <TodoList key={todo.id} todo={todo}></TodoList>
         ))}
       </div>
       <Button context="Clean All" onClick={handleCleanAll} />

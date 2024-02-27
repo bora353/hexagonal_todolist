@@ -3,6 +3,7 @@ import { TodoResponse } from "../types/todoResponse.interface";
 import { TodoRequest } from "../types/todoRequest.interface";
 
 const basePath = process.env.REACT_APP_BACK_END_SERVER + "/todoList";
+console.log(basePath);
 
 const getTodoList = async () => await axios.get<TodoResponse[]>(basePath);
 const saveTodo = async (todo: TodoRequest) =>
