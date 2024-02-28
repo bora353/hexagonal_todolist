@@ -13,17 +13,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TodoPersistenceAdaptor implements TodoPort {
 
-    private final TodoMapper todoMapper;
+    //private final TodoMapper todoMapper;
     private final TodoJpaRepository jpaRepository;
 
     @Override
     public List<Todo> findAll() {
-        return  jpaRepository.findAll().stream().map(todoMapper::toDomain).collect(Collectors.toList());
+        //return jpaRepository.findAll().stream().map(todoMapper::toDomain).collect(Collectors.toList());
+        return jpaRepository.findAll().stream().map(TodoMapStructMapper.INSTANCE::toDomain).collect(Collectors.toList());
     }
 
     @Override
     public void save(Todo todo) {
-        TodoEntity entity = todoMapper.toEntity(todo);
+        //TodoEntity entity = todoMapper.toEntity(todo);
+        TodoEntity entity = TodoMapStructMapper.INSTANCE.toEntity(todo);
         jpaRepository.save(entity);
     }
 

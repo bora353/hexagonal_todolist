@@ -20,6 +20,7 @@ public class TodoMapper {
 
     public TodoEntity toEntity(Todo domain){
         return TodoEntity.builder()
+                .id(domain.getId())
                 .complete(false)
                 .content(domain.getContent())
                 .description(domain.getDescription())
