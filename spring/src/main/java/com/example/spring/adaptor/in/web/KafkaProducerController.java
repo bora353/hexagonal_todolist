@@ -1,9 +1,10 @@
-package com.example.spring.adaptor.in.kafka;
+package com.example.spring.adaptor.in.web;
 
+import com.example.spring.application.service.KafKaProducerService;
+import com.example.spring.adaptor.in.kafka.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

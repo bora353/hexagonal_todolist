@@ -1,4 +1,4 @@
-package com.example.spring.adaptor.in.kafka;
+package com.example.spring.infrastructure.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

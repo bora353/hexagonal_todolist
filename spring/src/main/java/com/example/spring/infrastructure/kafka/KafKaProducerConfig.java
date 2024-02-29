@@ -1,6 +1,7 @@
-package com.example.spring.adaptor.in.kafka;
+package com.example.spring.infrastructure.kafka;
 
 
+import com.example.spring.adaptor.in.kafka.Message;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

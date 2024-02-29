@@ -1,5 +1,6 @@
-package com.example.spring.adaptor.in.kafka;
+package com.example.spring.application.service;
 
+import com.example.spring.adaptor.in.kafka.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
