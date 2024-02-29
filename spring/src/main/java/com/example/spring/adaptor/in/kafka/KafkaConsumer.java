@@ -8,18 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaConsumer {
 
-//    @Value(value = "${message.topic.name}")
-//    private String topicName;
-//    @Value(value = "${kafka.consumer.group-id}")
-//    private String groupId;
-
-    public static final String TOPIC_NAME = "mirerotopic";
-    public static final String GROUP_ID = "mirerogroup";
-
     ObjectMapper objectMapper = new ObjectMapper();
 
-    @KafkaListener(topics = TOPIC_NAME, groupId = GROUP_ID)
-    //@KafkaListener(topics = TOPIC_NAME)
+    @KafkaListener(topics = "${message.topic.name}", groupId = "${kafka.consumer.group-id}")
     public void listener(String jsonMessage){
         try {
             Message message = objectMapper.readValue(jsonMessage, Message.class);

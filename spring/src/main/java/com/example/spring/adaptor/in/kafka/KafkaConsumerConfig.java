@@ -17,14 +17,11 @@ import java.util.Map;
 @EnableKafka
 public class KafkaConsumerConfig {
 
-//    @Value(value = "${kafka.bootstrapAddress}")
-//    private String bootstrapAddress;
-//
-//    @Value(value = "${kafka.consumer.group-id}")
-//    private String groupId;
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String BOOTSTRAP_ADDRESS;
 
-    public static final String BOOTSTRAP_ADDRESS = "localhost:9092";
-    public static final String GROUP_ID = "mirerogroup";
+    @Value(value = "${kafka.consumer.group-id}")
+    private String GROUP_ID;
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory(){

@@ -17,8 +17,8 @@ import java.util.Map;
 @Configuration
 public class KafKaProducerConfig {
 
-    public static final String BOOTSTRAP_ADDRESS = "localhost:9092";
-
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String BOOTSTRAP_ADDRESS;
 
     @Bean
     public ProducerFactory<String, Message> producerFactory(){

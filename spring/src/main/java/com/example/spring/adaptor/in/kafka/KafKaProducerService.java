@@ -12,7 +12,8 @@ import java.util.concurrent.CompletableFuture;
 @RequiredArgsConstructor
 public class KafKaProducerService {
 
-    public static final String TOPIC_NAME = "mirerotopic";
+    @Value(value = "${message.topic.name}")
+    private String TOPIC_NAME;
 
     private final KafkaTemplate<String, Message> kafkaTemplate;
 

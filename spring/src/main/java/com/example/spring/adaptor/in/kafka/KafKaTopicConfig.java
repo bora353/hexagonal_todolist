@@ -5,7 +5,7 @@
 //import org.springframework.context.annotation.Configuration;
 //
 //@Configuration
-//public class KafKaTopicConfig { // 꼭 있어야하나?????
+//public class KafKaTopicConfig { // 카프카 토픽생성
 //
 //    @Value(value = "${kafka.bootstrapAddress}")
 //    private String bootstrapAddress;
