@@ -1,51 +1,38 @@
-//package com.example.spring.adaptor.in.kafka;
-//
-//
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.context.annotation.Configuration;
-//
-//@Configuration
-//public class KafKaTopicConfig { // 카프카 토픽생성
-//
-//    @Value(value = "${kafka.bootstrapAddress}")
-//    private String bootstrapAddress;
-//
-//    @Value(value = "${message.topic.name}")
-//    private String topicName;
-//
-//    @Value(value = "${greeting.topic.name}")
-//    private String partionedTopicName;
-//
-//    @Value(value = "${filtered.topic.name}")
-//    private String filteredTopicName;
-//
-//    @Value(value = "${partitioned.topic.name}")
-//    private String greetingTopicName;
-//
-////    @Bean
-////    public KafkaAdmin kafkaAdmin(){
-////        Map<String, Object> configs = new HashMap<>();
-////        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-////        return new KafkaAdmin(configs);
-////    }
-////
-////    @Bean
-////    public NewTopic topic1(){
-////
-////    }
-////
-////    @Bean
-////    public NewTopic topic2(){
-////
-////    }
-////
-////    @Bean
-////    public NewTopic topic3(){
-////
-////    }
-////
-////    @Bean
-////    public NewTopic topic4(){
-////
-////    }
-//}
+package com.example.spring.adaptor.in.kafka;
+
+import org.apache.kafka.clients.admin.AdminClientConfig;
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.KafkaAdmin;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class KafKaTopicConfig { // 카프카 토픽생성
+
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String BOOTSTRAP_ADDRESS;
+
+    @Value(value = "${kafka.consumer.group-id}")
+    private String GROUP_ID;
+
+    @Value(value = "${message.topic.name}")
+    private String TOPIC_NAME1;
+
+    @Bean
+    public KafkaAdmin kafkaAdmin(){
+        Map<String, Object> configs = new HashMap<>();
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_ADDRESS);
+        return new KafkaAdmin(configs);
+    }
+
+    @Bean
+    public NewTopic topic1(){
+        return new NewTopic(TOPIC_NAME1, 1, (short) 1);
+    }
+
+
+}
