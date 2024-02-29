@@ -37,9 +37,9 @@ public class TodoController {
     }
 
     @PostMapping("/todoList")
-    public ResponseEntity<Void> createTodo(@RequestBody Todo todoCreate) {
-        todoUseCase.create(todoCreate);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<Todo> createTodo(@RequestBody Todo todoCreate) {
+        Todo todoResult = todoUseCase.create(todoCreate);
+        return ResponseEntity.status(HttpStatus.CREATED).body(todoResult);
     }
 
     @DeleteMapping("/todoList/{id}")

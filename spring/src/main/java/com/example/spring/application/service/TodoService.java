@@ -25,8 +25,8 @@ public class TodoService implements TodoUseCase {
     }
 
     @Override
-    public void create(Todo todo) {
-        todoPort.save(todo);
+    public Todo create(Todo todo) {
+        return todoPort.save(todo);
     }
 
     @Override

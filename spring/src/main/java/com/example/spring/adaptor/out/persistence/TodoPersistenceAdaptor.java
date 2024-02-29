@@ -23,10 +23,11 @@ public class TodoPersistenceAdaptor implements TodoPort {
     }
 
     @Override
-    public void save(Todo todo) {
+    public Todo save(Todo todo) {
         //TodoEntity entity = todoMapper.toEntity(todo);
         TodoEntity entity = TodoMapStructMapper.INSTANCE.toEntity(todo);
         jpaRepository.save(entity);
+        return TodoMapStructMapper.INSTANCE.toDomain(entity);
     }
 
     @Override

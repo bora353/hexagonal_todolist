@@ -9,7 +9,7 @@ public interface TodoPort {
 
     List<Todo> findAll();
 
-    void save(Todo todo);
+    Todo save(Todo todo);
 
     void delete(Long id);
 }

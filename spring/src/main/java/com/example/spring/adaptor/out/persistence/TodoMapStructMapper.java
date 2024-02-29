@@ -2,7 +2,6 @@ package com.example.spring.adaptor.out.persistence;
 
 import com.example.spring.domain.Todo;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 @Mapper

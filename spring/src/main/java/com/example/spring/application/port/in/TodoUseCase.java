@@ -7,7 +7,7 @@ public interface TodoUseCase {
 
     public List<Todo> getAll();
 
-    void create(Todo todoCreate);
+    Todo create(Todo todoCreate);
 
     void delete(Long id);
 }
