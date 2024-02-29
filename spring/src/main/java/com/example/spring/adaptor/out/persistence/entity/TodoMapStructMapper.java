@@ -1,4 +1,4 @@
-package com.example.spring.adaptor.out.persistence;
+package com.example.spring.adaptor.out.persistence.entity;
 
 import com.example.spring.domain.Todo;
 import org.mapstruct.Mapper;
