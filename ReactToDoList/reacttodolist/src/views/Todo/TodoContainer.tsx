@@ -5,18 +5,18 @@ import { useTodoViewModelHook } from "../../shared/hooks/useTodoViewModel.hook";
 import Button from "../../components/atomic/buttons/Button";
 import styled from "styled-components";
 
+const TitleContainer = styled.h1`
+  text-align: center;
+`;
+
 export default function TodoContainer() {
   const { todoList, saveMutation, deleteMutation } = useTodoViewModelHook();
   const handleTodoSubmit = (todo: Todo) => saveMutation.mutate(todo); // todo가 mutationFn의 매개변수로 들어감
   const handleCleanAll = () => deleteMutation.mutate(todoList || []);
 
-  const ContainerTitle = styled.h1`
-    text-align: center;
-  `;
-
   return (
     <div>
-      <ContainerTitle>TodoList</ContainerTitle>
+      <TitleContainer>TodoList</TitleContainer>
       <div>
         <TodoForm onSubmit={handleTodoSubmit} />
       </div>
