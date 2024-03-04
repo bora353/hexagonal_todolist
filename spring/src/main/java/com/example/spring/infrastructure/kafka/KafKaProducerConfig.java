@@ -22,7 +22,7 @@ public class KafKaProducerConfig {
     private String BOOTSTRAP_ADDRESS;
 
     @Bean
-    public ProducerFactory<String, Message> producerFactory(){
+    public ProducerFactory<String, String> producerFactory(){
         Map<String, Object> config = new HashMap<>();
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_ADDRESS);
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -36,7 +36,7 @@ public class KafKaProducerConfig {
     // 이 메서드를 사용하여 브로커로 메시지를 보내기 위해 직접 Kafka Producer API를 사용하는 대신,
     // send와 같은 메서드를 통해 더 편리하고 간결한 코드로 메시지를 보낼 수 있습니다.
     @Bean
-    public KafkaTemplate<String, Message> kafkaTemplate(){
+    public KafkaTemplate<String, String> kafkaTemplate(){
         return new KafkaTemplate<>(producerFactory());
     }
 }

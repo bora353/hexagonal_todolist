@@ -1,6 +1,6 @@
 package com.example.spring.adaptor.out.persistence.repository;
 
-import com.example.spring.adaptor.out.persistence.entity.TodoMapStructMapper;
+import com.example.spring.adaptor.out.persistence.mapper.TodoMapStructMapper;
 import com.example.spring.adaptor.out.persistence.entity.TodoEntity;
 import com.example.spring.application.port.out.TodoPort;
 import com.example.spring.domain.Todo;
@@ -37,4 +37,5 @@ public class TodoPersistenceAdaptor implements TodoPort {
         Optional<TodoEntity> entity = jpaRepository.findById(id);
         jpaRepository.deleteById(id);
     }
+
 }

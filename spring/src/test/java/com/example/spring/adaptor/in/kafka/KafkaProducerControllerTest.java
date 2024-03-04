@@ -21,7 +21,7 @@
 //    private MockMvc mockMvc;
 //
 //    @MockBean
-//    private KafKaProducerService kafKaProducerService;
+//    private KafKaProducer kafKaProducerService;
 //
 //    @Test
 //    void kafka_결과_확인() throws Exception {

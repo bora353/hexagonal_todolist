@@ -29,36 +29,36 @@ services:
     networks:
       - study
 
-  react:
-    container_name: react
-    build:
-      context: ./ReactToDoList/reacttodolist
-      dockerfile: Dockerfile
-    restart: always
-    command: npm start
+  # react:
+  #   container_name: react
+  #   build:
+  #     context: ./ReactToDoList/reacttodolist
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   command: npm start
+  #   ports:
+  #     - "3000:3000"
+  #   # depends_on:
+  #   #   - spring
+  #   networks:
+  #     - study
+
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
     ports:
-      - "3000:3000"
-    # depends_on:
-    #   - spring
-    networks:
-      - study
+      - "2181:2181"
 
-  # zookeeper:
-  #   image: wurstmeister/zookeeper:latest
-  #   container_name: zookeeper
-  #   ports:
-  #     - "2181:2181"
-
-  # kafka:
-  #   image: wurstmeister/kafka:latest
-  #   container_name: kafka
-  #   ports:
-  #     - "9092:9092"
-  #   environment:
-  #     KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-  #   depends_on:
-  #     - zookeeper
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper
 
 networks:
   study:

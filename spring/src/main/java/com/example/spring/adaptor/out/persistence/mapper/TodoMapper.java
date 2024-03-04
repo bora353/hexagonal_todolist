@@ -1,5 +1,6 @@
-package com.example.spring.adaptor.out.persistence.entity;
+package com.example.spring.adaptor.out.persistence.mapper;
 
+import com.example.spring.adaptor.out.persistence.entity.TodoEntity;
 import com.example.spring.domain.Todo;
 import org.springframework.stereotype.Component;
 
@@ -8,7 +9,7 @@ public class TodoMapper {
 
     public Todo toDomain(TodoEntity entity){
         return Todo.builder()
-                .id(entity.getId())
+                //.id(entity.getId())
                 .name(entity.getName())
                 .complete(false)
                 .content(entity.getContent())
@@ -18,11 +19,12 @@ public class TodoMapper {
 
     public TodoEntity toEntity(Todo domain){
         return TodoEntity.builder()
-                .id(domain.getId())
+                //.id(domain.getId())
                 .complete(false)
                 .content(domain.getContent())
                 .description(domain.getDescription())
                 .name(domain.getName())
                 .build();
     }
+
 }
