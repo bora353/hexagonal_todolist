@@ -22,8 +22,8 @@ public class KafKaProducer {
     public void send(Message message){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            String stringMessage = objectMapper.writeValueAsString(message);
-            kafkaTemplate.send(TOPIC_NAME, stringMessage);
+            String jsonMessage = objectMapper.writeValueAsString(message);
+            kafkaTemplate.send(TOPIC_NAME, jsonMessage);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
