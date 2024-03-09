@@ -28,11 +28,11 @@ export const useTodoStore = create<TodoState & TodoReducer>((set) => ({
   todoList: [],
   setTodo: (todoState: TodoState) => set({ todoList: todoState.todoList }), // 사용시   setTodo({ todoList: [...todoList, newTodo] });
   removeTodo: (id: number) =>
-    set((todoState) => ({
+    set((todoState: TodoState) => ({
       todoList: todoState.todoList.filter((todo) => todo.id !== id),
     })),
   toggleTodo: (id: number) =>
-    set((todoState) => ({
+    set((todoState: TodoState) => ({
       todoList: todoState.todoList.map((todo) => {
         if (todo.id === id) {
           return { ...todo, done: !todo.done };

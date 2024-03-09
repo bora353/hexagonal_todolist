@@ -6,7 +6,7 @@ import lombok.*;
 @Entity
 @Table(name="tb_todo")
 @Getter
-@Setter
+//@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

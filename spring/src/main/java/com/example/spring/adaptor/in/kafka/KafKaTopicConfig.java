@@ -11,16 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafKaTopicConfig { // 카프카 토픽생성
+public class KafKaTopicConfig { // 카프카 토픽 동적으로 생성
 
     @Value(value = "${kafka.bootstrapAddress}")
     private String BOOTSTRAP_ADDRESS;
-
-    @Value(value = "${kafka.consumer.group-id}")
-    private String GROUP_ID;
-
-    @Value(value = "${message.topic.name}")
-    private String TOPIC_NAME1;
 
     @Bean
     public KafkaAdmin kafkaAdmin(){
@@ -31,7 +25,7 @@ public class KafKaTopicConfig { // 카프카 토픽생성
 
     @Bean
     public NewTopic topic1(){
-        return new NewTopic(TOPIC_NAME1, 1, (short) 1);
+        return new NewTopic("topic12345", 1, (short) 1);
     }
 
 
